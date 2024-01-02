@@ -41,7 +41,12 @@ const cleanupOldMessages = () => {
   async function initWhatsapp() {
     let interval: string | number | NodeJS.Timeout | undefined = undefined;
     const client = new Client(
-      {authStrategy: new LocalAuth()}
+      {
+        authStrategy: new LocalAuth(),
+        puppeteer: {
+          args: ['--no-sandbox'],
+        }
+      }
     );
     client.on('qr', (qr: any) => {
       qrcode.generate(qr, {small: true});
@@ -237,6 +242,7 @@ const cleanupOldMessages = () => {
 
 // Create a WebSocket client to connect to the external server
   const connectToExternalServer = () => {
+    console.log('Trying to connect to external WebSocket server...');
     wsClient = new WebSocket(targetWsUrl, {headers});
     
     wsClient.on('open', () => {
