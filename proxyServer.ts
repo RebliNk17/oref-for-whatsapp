@@ -44,7 +44,8 @@ const cleanupOldMessages = () => {
       {
         authStrategy: new LocalAuth(),
         puppeteer: {
-          args: ['--no-sandbox'],
+          headless: true,
+          args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-extensions']
         }
       }
     );
