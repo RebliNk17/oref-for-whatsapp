@@ -66,12 +66,22 @@ const cleanupOldMessages = () => {
     
     client.on('ready', () => {
       console.log('Client is ready!');
-      setTimeout(() => {
-        myselfChat?.sendMessage("I'm now alive!")
+      setTimeout(async () => {
+        myselfChat?.sendMessage("I'm now alive!");
+        const filename = await createSticker(
+          "בדיקההה",
+          "plane",
+          "house",
+          true,
+          "בדיקה",
+        );
+        const stickerToSend = MessageMedia.fromFilePath(filename);
+        await myselfChat?.sendMessage(stickerToSend, {sendMediaAsSticker: true});
+        
         interval = setInterval(() => {
           myselfChat?.sendMessage("I'm still UP!")
         }, 1000 * 60 * 30)
-      }, 10000);
+      }, 1000 * 10);
     });
     
     client.on('disconnected', (reason) => {
