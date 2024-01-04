@@ -113,13 +113,3 @@ export async function createSticker(
   };
   return await drawEmojis();
 }
-
-//
-// createSticker("מורןןןןןןןןןן", "plane", "home").then();
-// createSticker("מורןןןןןןןןןן", "rocket", "home").then();
-// createSticker("לירז ועידןןןן", "rocket", "building").then();
-// createSticker("לירז ועידןןןן", "plane", "building").then();
-// createSticker("עדי וחגעייי", "plane", "hotel").then();
-// createSticker("עדי וחגעייי", "rocket", "hotel", true, "30 שניות").then();
-// createSticker("אבא ואמאאא", "plane", "hotel").then();
-//

@@ -68,25 +68,10 @@ const cleanupOldMessages = () => {
     client.on('ready', () => {
       console.log('Client is ready!');
       setTimeout(() => {
-        myselfChat?.sendMessage("I'm now alive!");
-          setTimeout(async () => {
-            const filename = await createSticker(
-              "בדיקההה",
-              "plane",
-              "home",
-              true,
-              "בדיקה",
-            );
-            const stickerToSend = MessageMedia.fromFilePath(filename);
-            await myselfChat?.sendMessage(stickerToSend, {sendMediaAsSticker: true});
-            setTimeout(() => {
-              fs.unlink(filename, () => {
-              })
-            }, 1000 * 60 * 5);
-            interval = setInterval(() => {
-              myselfChat?.sendMessage("I'm still UP!")
-            }, 1000 * 60 * 30)
-          }, 1000 * 30);
+        myselfChat?.sendMessage("I'm now alive!")
+        interval = setInterval(() => {
+          myselfChat?.sendMessage("I'm still UP!")
+        }, 1000 * 60 * 30)
       }, 1000 * 10);
     });
     
@@ -103,7 +88,21 @@ const cleanupOldMessages = () => {
     chats = await client.getChats();
     myselfChat = chats.find((chat: Chat) => chat.name.includes('בדיקה')) as GroupChat;
     meshkastolimGroupChat = chats.find((chat: Chat) => chat.name.includes('משקסטולים')) as GroupChat;
-    console.log("received chats", myselfChat?.id, meshkastolimGroupChat?.id)
+    console.log("received chats", myselfChat?.id._serialized, meshkastolimGroupChat?.id._serialized);
+    myselfChat?.sendMessage("I'm now alive!");
+    const filename = await createSticker(
+      "בדיקההה",
+      "plane",
+      "home",
+      true,
+      "בדיקה",
+    );
+    const stickerToSend = MessageMedia.fromFilePath(filename);
+    await myselfChat?.sendMessage(stickerToSend, {sendMediaAsSticker: true});
+    setTimeout(() => {
+      fs.unlink(filename, () => {
+      })
+    }, 1000 * 60 * 5);
   }
   
   await initWhatsapp();
