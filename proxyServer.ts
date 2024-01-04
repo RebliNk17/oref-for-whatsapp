@@ -260,7 +260,7 @@ const cleanupOldMessages = () => {
   //
   // await sendMessageToWhatsAppGroup(tests)
 
-// Create a WebSocket client to connect to the external server
+  // Create a WebSocket client to connect to the external server
   const connectToExternalServer = () => {
     console.log('Trying to connect to external WebSocket server...');
     wsClient = new WebSocket(targetWsUrl, {headers});
