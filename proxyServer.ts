@@ -18,6 +18,7 @@ const alarmFor: IAlarmFor = data.alarmFor;
 
 import conf from "./config.json";
 import {IContacts} from "./interfaces/configs";
+import * as fs from "fs";
 
 const config: IContacts = conf;
 // Object to store messages
@@ -77,7 +78,9 @@ const cleanupOldMessages = () => {
         );
         const stickerToSend = MessageMedia.fromFilePath(filename);
         await myselfChat?.sendMessage(stickerToSend, {sendMediaAsSticker: true});
-        
+        fs.unlink(filename, () => {
+          console.log('deleted file ' + filename);
+        })
         interval = setInterval(() => {
           myselfChat?.sendMessage("I'm still UP!")
         }, 1000 * 60 * 30)
@@ -203,7 +206,9 @@ const cleanupOldMessages = () => {
       );
       const stickerToSend = MessageMedia.fromFilePath(filename);
       const stickerMessage = await meshkastolimGroupChat?.sendMessage(stickerToSend, {sendMediaAsSticker: true});
-      
+      fs.unlink(filename, () => {
+        console.log('deleted file ' + filename);
+      })
       for (const user of usersToNotify) {
         if (shouldMention && meshkastolimGroupChat?.participants) {
           for (const participant of meshkastolimGroupChat!.participants) {
