@@ -72,7 +72,7 @@ const cleanupOldMessages = () => {
         const filename = await createSticker(
           "בדיקההה",
           "plane",
-          "house",
+          "home",
           true,
           "בדיקה",
         );
