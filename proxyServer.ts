@@ -99,10 +99,6 @@ const cleanupOldMessages = () => {
     );
     const stickerToSend = MessageMedia.fromFilePath(filename);
     await myselfChat?.sendMessage(stickerToSend, {sendMediaAsSticker: true});
-    setTimeout(() => {
-      fs.unlink(filename, () => {
-      })
-    }, 1000 * 60 * 5);
   }
   
   await initWhatsapp();
@@ -209,9 +205,6 @@ const cleanupOldMessages = () => {
       );
       const stickerToSend = MessageMedia.fromFilePath(filename);
       const stickerMessage = await meshkastolimGroupChat?.sendMessage(stickerToSend, {sendMediaAsSticker: true});
-      setTimeout(() => {
-        fs.unlink(filename, () => {})
-      }, 1000 * 60 * 5);
       for (const user of usersToNotify) {
         if (shouldMention && meshkastolimGroupChat?.participants) {
           for (const participant of meshkastolimGroupChat!.participants) {
