@@ -2,6 +2,7 @@
 export interface AlertData {
   type: string;
   data: AlertInfo;
+  isSent?: boolean;
 }
 
 export interface AlertInfo {

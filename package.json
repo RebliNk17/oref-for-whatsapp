@@ -10,15 +10,15 @@
     "emoji.json": "^15.1.0",
     "http-proxy": "^1.18.1",
     "qrcode-terminal": "^0.12.0",
-    "whatsapp-web.js": "^1.23.0",
-    "ws": "^8.15.1"
+    "whatsapp-web.js": "^1.26.0",
+    "ws": "^8.18.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.4",
     "@types/qrcode-terminal": "^0.12.2",
-    "@types/ws": "^8.5.10",
-    "nodemon": "^3.0.2",
+    "@types/ws": "^8.5.12",
+    "nodemon": "^3.1.7",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.6.2"
   }
 }
